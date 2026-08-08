@@ -1,0 +1,40 @@
+,,,,,,,,,,,,,,,,,,,
+"4 classrooms run in parallel every slot (Lab Room 01-04). Type a registered Batch Name under any room to auto-fill its Course, Teacher and Monitor Teacher from Batch Manager. Each class runs 1 hour 30 minutes. Friday is a holiday. See the Dashboard for a live ""what is happening right now"" view.",,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+Day,Time Slot,Lab Room 01,Course,Teacher,Monitor Teacher,Lab Room 02,Course,Teacher,Monitor Teacher,Lab Room 03,Course,Teacher,Monitor Teacher,Class Room 01,Course,Teacher,Monitor Teacher,Slot Start (helper),Slot End (helper)
+Saturday,10:00 AM - 11:30 AM,PTE-163,PTE,Setu,,CD CRASH,CD IELTS CRASH,Shajib,,,,,,,,,,10:00 AM,11:30 AM
+Saturday,11:30 AM - 1:00 PM,CD IELTS-111,CD IELTS,Shajib,,PTE-160,PTE,Sakib,,,,,,,,,,11:30 AM,1:00 PM
+Saturday,1:00 PM - 2:30 PM,PTE-164,PTE,Sakib,,CD IELTS-109,CD IELTS,Apurbo,,,,,,,,,,1:00 PM,2:30 PM
+Saturday,2:30 PM - 4:00 PM,PTE-165,PTE,Naila,,,,,,,,,,,,,,2:30 PM,4:00 PM
+Saturday,4:00 PM - 5:30 PM,PTE-168,PTE,Naila,,,,,,,,,,,,,,4:00 PM,5:30 PM
+Saturday,5:30 PM - 7:00 PM,,,,,CD IELTS-110,CD IELTS,Shajib,,,,,,,,,,5:30 PM,7:00 PM
+Sunday,10:00 AM - 11:30 AM,PROBLEM SOLVING,,,,CD IELTS-110,CD IELTS,Shajib,,,,,,,,,,10:00 AM,11:30 AM
+Sunday,11:30 AM - 1:00 PM,PTE-166,PTE,Sakib,,,,,,,,,,,,,,11:30 AM,1:00 PM
+Sunday,1:00 PM - 2:30 PM,PTE-167,PTE,Sakib,,CD IELTS-108,CD IELTS,Apurbo,,,,,,,,,,1:00 PM,2:30 PM
+Sunday,2:30 PM - 4:00 PM,PTE-168,PTE,Naila,,,,,,,,,,,,,,2:30 PM,4:00 PM
+Sunday,4:00 PM - 5:30 PM,PTE-161,PTE,Soumik,,,,,,,,,,,,,,4:00 PM,5:30 PM
+Sunday,5:30 PM - 7:00 PM,PTE-162,PTE,Soumik,,,,,,,,,,,,,,5:30 PM,7:00 PM
+Monday,10:00 AM - 11:30 AM,PTE-163,PTE,Setu,,CD CRASH,CD IELTS CRASH,Shajib,,,,,,,,,,10:00 AM,11:30 AM
+Monday,11:30 AM - 1:00 PM,CD IELTS-111,CD IELTS,Shajib,,PTE-160,PTE,Sakib,,,,,,,,,,11:30 AM,1:00 PM
+Monday,1:00 PM - 2:30 PM,PTE-164,PTE,Sakib,,,,,,,,,,,,,,1:00 PM,2:30 PM
+Monday,2:30 PM - 4:00 PM,PTE-165,PTE,Naila,,,,,,,,,,,,,,2:30 PM,4:00 PM
+Monday,4:00 PM - 5:30 PM,PTE-168,PTE,Naila,,,,,,,,,,,,,,4:00 PM,5:30 PM
+Monday,5:30 PM - 7:00 PM,,,,,,,,,,,,,,,,,5:30 PM,7:00 PM
+Tuesday,10:00 AM - 11:30 AM,,,,,CD CRASH,CD IELTS CRASH,Shajib,,,,,,,,,,10:00 AM,11:30 AM
+Tuesday,11:30 AM - 1:00 PM,PTE-166,PTE,Sakib,,,,,,,,,,,,,,11:30 AM,1:00 PM
+Tuesday,1:00 PM - 2:30 PM,PTE-167,PTE,Sakib,,CD IELTS-108,CD IELTS,Apurbo,,,,,,,,,,1:00 PM,2:30 PM
+Tuesday,2:30 PM - 4:00 PM,PTE-158,PTE,Naila,,,CD MOCK,,,,,,,,,,,2:30 PM,4:00 PM
+Tuesday,4:00 PM - 5:30 PM,PTE-161,PTE,Soumik,,,,,,,,,,,,,,4:00 PM,5:30 PM
+Tuesday,5:30 PM - 7:00 PM,PTE-162,PTE,Soumik,,,,,,,,,,,,,,5:30 PM,7:00 PM
+Wednesday,10:00 AM - 11:30 AM,PTE-163,PTE,Setu,,CD CRASH,CD IELTS CRASH,Shajib,,,,,,,,,,10:00 AM,11:30 AM
+Wednesday,11:30 AM - 1:00 PM,CD IELTS-111,CD IELTS,Shajib,,PTE-160,PTE,Sakib,,,,,,,,,,11:30 AM,1:00 PM
+Wednesday,1:00 PM - 2:30 PM,PTE-164,PTE,Sakib,,CD IELTS-109,CD IELTS,Apurbo,,,,,,,,,,1:00 PM,2:30 PM
+Wednesday,2:30 PM - 4:00 PM,PTE-165,PTE,Naila,,,,,,,,,,,,,,2:30 PM,4:00 PM
+Wednesday,4:00 PM - 5:30 PM,PTE-168,PTE,Naila,,PTE-159,PTE,Shetu,,,,,,,,,,4:00 PM,5:30 PM
+Wednesday,5:30 PM - 7:00 PM,,,,,CD IELTS-110,CD IELTS,Shajib,,,,,,,,,,5:30 PM,7:00 PM
+Thursday,10:00 AM - 11:30 AM,,,,,CD CRASH,CD IELTS CRASH,Shajib,,,,,,,,,,10:00 AM,11:30 AM
+Thursday,11:30 AM - 1:00 PM,PTE-166,PTE,Sakib,,,,,,,,,,,,,,11:30 AM,1:00 PM
+Thursday,1:00 PM - 2:30 PM,PTE-167,PTE,Sakib,,CD IELTS-108,CD IELTS,Apurbo,,,,,,,,,,1:00 PM,2:30 PM
+Thursday,2:30 PM - 4:00 PM,PTE-158,PTE,Naila,,,PTE MOCK,,,,,,,,,,,2:30 PM,4:00 PM
+Thursday,4:00 PM - 5:30 PM,PTE-161,PTE,Soumik,,,,,,,,,,,,,,4:00 PM,5:30 PM
+Thursday,5:30 PM - 7:00 PM,PTE-162,PTE,Soumik,,,,,,,,,,,,,,5:30 PM,7:00 PM

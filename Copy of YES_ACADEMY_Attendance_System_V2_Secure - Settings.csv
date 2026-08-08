@@ -1,0 +1,29 @@
+SETTINGS - ADMIN CONFIGURATION,,,,,,,ACCESS CONTROL (ROLE-BASED PERMISSIONS),
+,,,,,,,,
+Course Types,,Batch Status List,,,Class # List,,Role,Email Address
+PTE,,Active,,,1,,HR,"
+hr.yesacademybd@gmail.com"
+PTE Booster,,Completed,,,2,,Admin,admindailywork@gmail.com
+CD IELTS,,Upcoming,,,3,,Faculty,faculty.yesacademy@gmail.com
+CD IELTS CRASH,,Paused,,,4,,,
+Basic Grammar,,,,,5,,,
+Attendance Codes,,,,,6,,Add additional Admin/Faculty rows below as needed. Row range read by Access.gs is H4:K50.,
+Code,Meaning,Color,,,7,,,
+P,Present,,,,8,,,
+A,Absent,,,,9,,,
+LV,Leave,,,,10,,,
+,,,,,11,,,
+,,,,,12,,,
+,,,,,13,,,
+,,,,,14,,,
+Batch Defaults,,,,,15,,,
+Maximum Students per Batch,12,,,,16,,,
+,,,,,17,,,
+Total Classes per Batch,28,,,,18,,,
+Additional Classes per Batch,8,,,,19,,,
+PTE Total Classes per Batch,24,,,,20,,,
+PTE Additional Classes per Batch,0,,,,21,,,
+,,,,,22,,,
+,,,,,23,,,
+,,,,,24,,,
+,,,,,25,,,

@@ -1,0 +1,244 @@
+'use client'
+
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { useState } from 'react'
+import { createBatch, updateBatch } from '@/app/actions/batches'
+import { useRouter } from 'next/navigation'
+
+const batchSchema = z.object({
+  batch_name: z.string().min(1, 'Batch name is required'),
+  course_id: z.string().uuid('Course is required'),
+  teacher_id: z.string().uuid('Teacher is required'),
+  monitor_teacher_id: z.string().optional().nullable(),
+  room_id: z.string().uuid('Room is required'),
+  start_date: z.string().min(1, 'Start date is required'),
+  expected_end_date: z.string().min(1, 'End date is required'),
+  max_students: z.coerce.number().min(1),
+  total_classes: z.coerce.number().min(1),
+  additional_classes: z.coerce.number().min(0),
+  status: z.enum(['Upcoming', 'Active', 'Paused', 'Completed']),
+  schedule_days: z.array(z.string()).min(1, 'Select at least one day'),
+  start_time: z.string().min(1, 'Start time required'),
+  end_time: z.string().min(1, 'End time required'),
+})
+
+type BatchFormValues = z.infer<typeof batchSchema>
+
+export default function BatchForm({ 
+  initialData, 
+  courses, 
+  teachers, 
+  rooms, 
+  settings 
+}: { 
+  initialData?: any,
+  courses: any[],
+  teachers: any[],
+  rooms: any[],
+  settings: any
+}) {
+  const router = useRouter()
+  const [error, setError] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const defaultValues: Partial<BatchFormValues> = initialData || {
+    status: 'Upcoming',
+    max_students: settings?.default_max_students || 12,
+    total_classes: settings?.default_total_classes || 24,
+    additional_classes: settings?.default_additional_classes || 8,
+    schedule_days: [],
+  }
+
+  const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm<BatchFormValues>({
+    resolver: zodResolver(batchSchema),
+    defaultValues
+  })
+
+  // When course changes, update defaults if it's a new batch
+  const selectedCourseId = watch('course_id')
+  const handleCourseChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const courseId = e.target.value
+    setValue('course_id', courseId)
+    if (!initialData) {
+      const course = courses.find(c => c.id === courseId)
+      if (course) {
+        setValue('total_classes', course.default_total_classes)
+        setValue('additional_classes', course.default_additional_classes)
+      }
+    }
+  }
+
+  const onSubmit = async (data: BatchFormValues) => {
+    setIsSubmitting(true)
+    setError(null)
+    
+    // Convert data to FormData for Server Action
+    const formData = new FormData()
+    Object.entries(data).forEach(([key, value]) => {
+      if (key === 'schedule_days') {
+        ;(value as string[]).forEach(day => formData.append('schedule_days', day))
+      } else if (value !== null && value !== undefined) {
+        formData.append(key, value.toString())
+      }
+    })
+
+    const result = initialData 
+      ? await updateBatch(initialData.id, null, formData)
+      : await createBatch(null, formData)
+
+    if (result.success) {
+      router.push('/dashboard/admin/batches')
+      router.refresh()
+    } else {
+      setError(result.message)
+      setIsSubmitting(false)
+    }
+  }
+
+  const daysOfWeek = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-gray-200">
+      {error && <div className="p-4 bg-red-50 text-red-700 rounded-lg text-sm font-medium">{error}</div>}
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Basic Info */}
+        <div className="space-y-4 md:col-span-2 lg:col-span-1">
+          <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Basic Info</h3>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Batch Name</label>
+            <input type="text" {...register('batch_name')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+            {errors.batch_name && <p className="mt-1 text-xs text-red-500">{errors.batch_name.message}</p>}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Course</label>
+            <select {...register('course_id')} onChange={handleCourseChange} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+              <option value="">Select a course...</option>
+              {courses.map(c => <option key={c.id} value={c.id}>{c.family} - {c.name}</option>)}
+            </select>
+            {errors.course_id && <p className="mt-1 text-xs text-red-500">{errors.course_id.message}</p>}
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Status</label>
+              <select {...register('status')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                <option value="Upcoming">Upcoming</option>
+                <option value="Active">Active</option>
+                <option value="Paused">Paused</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Room</label>
+              <select {...register('room_id')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                <option value="">Select room...</option>
+                {rooms.map(r => <option key={r.id} value={r.id}>{r.name} (Cap: {r.capacity})</option>)}
+              </select>
+              {errors.room_id && <p className="mt-1 text-xs text-red-500">{errors.room_id.message}</p>}
+            </div>
+          </div>
+        </div>
+
+        {/* Staff & Dates */}
+        <div className="space-y-4 md:col-span-2 lg:col-span-1">
+          <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Staff & Dates</h3>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Teacher</label>
+              <select {...register('teacher_id')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                <option value="">Select teacher...</option>
+                {teachers.map(t => <option key={t.id} value={t.id}>{t.display_name}</option>)}
+              </select>
+              {errors.teacher_id && <p className="mt-1 text-xs text-red-500">{errors.teacher_id.message}</p>}
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Monitor Teacher</label>
+              <select {...register('monitor_teacher_id')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                <option value="">None</option>
+                {teachers.map(t => <option key={t.id} value={t.id}>{t.display_name}</option>)}
+              </select>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Start Date</label>
+              <input type="date" {...register('start_date')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+              {errors.start_date && <p className="mt-1 text-xs text-red-500">{errors.start_date.message}</p>}
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Expected End Date</label>
+              <input type="date" {...register('expected_end_date')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+              {errors.expected_end_date && <p className="mt-1 text-xs text-red-500">{errors.expected_end_date.message}</p>}
+            </div>
+          </div>
+        </div>
+
+        {/* Schedule */}
+        <div className="space-y-4 md:col-span-2">
+          <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Schedule & Limits</h3>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Days of Week</label>
+              <div className="space-y-2">
+                {daysOfWeek.map(day => (
+                  <label key={day} className="flex items-center gap-2 text-sm text-gray-600">
+                    <input type="checkbox" value={day} {...register('schedule_days')} className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                    {day}
+                  </label>
+                ))}
+              </div>
+              {errors.schedule_days && <p className="mt-1 text-xs text-red-500">{errors.schedule_days.message}</p>}
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Start Time</label>
+                <input type="time" {...register('start_time')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                {errors.start_time && <p className="mt-1 text-xs text-red-500">{errors.start_time.message}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">End Time</label>
+                <input type="time" {...register('end_time')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                {errors.end_time && <p className="mt-1 text-xs text-red-500">{errors.end_time.message}</p>}
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Max Students</label>
+                <input type="number" {...register('max_students')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Total Classes</label>
+                  <input type="number" {...register('total_classes')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Additional</label>
+                  <input type="number" {...register('additional_classes')} className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-end gap-4 pt-4 border-t border-gray-200">
+        <button type="button" onClick={() => router.back()} className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          Cancel
+        </button>
+        <button type="submit" disabled={isSubmitting} className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50">
+          {isSubmitting ? 'Saving...' : initialData ? 'Update Batch' : 'Create Batch'}
+        </button>
+      </div>
+    </form>
+  )
+}

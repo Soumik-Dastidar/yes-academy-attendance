@@ -1,0 +1,44 @@
+YES ACADEMY  -  LIVE ATTENDANCE REGISTER,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Course:,PTE,,,Batch Name:,PTE-161,,Teacher:,Soumik,,Monitor Teacher:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Start Date:,,,,Current Class #:,9,,Status:,0.9555555556,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Students Enrolled:,7,,,Maximum Students:,12,,Attendance %:,95.6%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,REGULAR CLASS ATTENDANCE (24 Classes),,,,,,,,,,,,,,,,,,,,,,,,,ADDITIONAL CLASSES (4),,,,ADDITIONAL CLASSES (8),,,,,,,,
+,,,,5,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+Student Name,Phone Number,Gurdian Phone Number,Attendance %,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,C26,C27,C28,AC4,AC1,AC2,AC3,AC4,AC5,AC6,AC7,AC8,RankKey
+SK RAKIB HASSAN,8801914827271,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-0.99991
+NILIMA BEGUM,8801741367516,,100.0%,P,P,P,P,P,P,P,P,P,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100.0%
+MD ZAKIR HUSSAIN,8801717953407,,100.0%,P,P,P,P,P,P,P,P,P,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100.0%
+FAHMIDA ISLAM,8801306043960,,100.0%,P,P,P,P,P,P,P,P,P,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100.0%
+JOY PURKAYSTO,8801642520572,,77.8%,P,P,P,A,A,P,P,P,P,,,,,,,,,,,,,,,,,,,,,,,,,,,,,77.8%
+IFTEKHARUL ISLAM,8801920020228,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-0.99986
+BIPLOB RUDRO PAUL,8801757385527,,100.0%,P,P,P,P,P,P,P,P,P,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100.0%
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-0.99984
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-0.99983
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-0.99982
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-0.99981
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-0.9998
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+BATCH PROGRESS,,,,,,BATCH SUMMARY,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Current Class Number,,,9,,,Student Name,Total Classes,"Additional Classes
+(if required)",Fine Amount,"Weekly Practice
+Portal Time (hrs)","Speaking
+Partial Score","Writing
+Partial Score","Reading
+Partial Score","Listening
+Partial Score",,,,,,,,,,,,,,,,,,,,,,,,,,,
+Total Class Number (Batch),,,24,,,SK RAKIB HASSAN,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Additional Classes (per Batch),,,0,,,NILIMA BEGUM,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Classes Completed,,,9,,,MD ZAKIR HUSSAIN,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Remaining Classes,,,15,,,FAHMIDA ISLAM,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,JOY PURKAYSTO,24,0,200,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Total Present,,,43,,,IFTEKHARUL ISLAM,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Total Absent,,,2,,,BIPLOB RUDRO PAUL,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Total Leave,,,0,,,,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Overall Attendance %,,,95.6%,,,,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Highest Attendance,,,100.0%,,,,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Lowest Attendance,,,77.8%,,,,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Top 1 Student (Attendance),,BIPLOB RUDRO PAUL,,,,,24,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Top 2 Student (Attendance),,FAHMIDA ISLAM,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"HOW TO USE THIS TEMPLATE:  1) Right-click this tab -> Duplicate.  2) Rename the new tab exactly as the Batch Name (e.g. PTE-35).  3) Type that same Batch Name in cell F3 (Batch Name field) - Course, Teacher and Monitor Teacher will auto-fill from 'Batch Manager' (make sure the batch is already registered there first).  4) Fill Start Date and the student list (Name in column A, Phone in column B, Guardian Phone in column C) in rows 9-20.  5) Register the same Batch Name in 'Batch Manager' if you haven't already.  6) In the BATCH SUMMARY table (bottom right, starting row 22), fill Total Classes, Additional Classes, Fine Amount, Weekly Practice Portal Time, and the Speaking/Writing/Reading/Listening partial scores as they become available - each row is matched to the student in the same row of the main list via the Student Name formula.  Everything else (class columns, dropdowns, % calculations, Top-2 students, Guardian Phone linkage to the Permanent Database) already works. This batch runs for a fixed Total Classes = 36 (28 regular, columns E-AF), plus up to 8 Additional Classes if required (columns AH-AO, separated by a blank gap column AG). Total Classes and Additional Classes are controlled from Settings B21/B22 and update everywhere automatically.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
