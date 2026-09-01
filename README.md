@@ -2,7 +2,7 @@
 
 ## 🌐 Live Demo
 
-https://yes-academy-web-app.vercel.app/login
+https://yes-academy-web-app.vercel.app
 
 ## 📌 Overview
 
@@ -32,7 +32,7 @@ A modern, role-based, real-time web application to replace the old Google Sheets
 
 ## 🚀 Live Demo
 
-https://yes-academy-web-app.vercel.app/login
+https://yes-academy-web-app.vercel.app
 
 ## 👨‍💻 Author
 
