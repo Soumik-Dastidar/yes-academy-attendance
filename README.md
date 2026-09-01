@@ -36,4 +36,5 @@ https://yes-academy-web-app.vercel.app
 
 ## 👨‍💻 Author
 
-GitHub: [Soumik-Dastidar](https://github.com/Soumik-Dastidar)
+<img width="1920" height="851" alt="Screenshot (85)" src="https://github.com/user-attachments/assets/525fba2c-96c8-4616-8079-f8f6fb6972f0" />
+
